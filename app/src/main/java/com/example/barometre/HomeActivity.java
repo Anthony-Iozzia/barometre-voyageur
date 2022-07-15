@@ -10,12 +10,12 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity implements SensorEventListener {
+public class HomeActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor pressure;
 
-    private TextView tvPression;
+    private TextView tvPressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity implements SensorEventListener {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
-        tvPression = (TextView) findViewById(R.id.capteur_pression);
+        tvPressure = (TextView) findViewById(R.id.capteur_pression);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Home extends AppCompatActivity implements SensorEventListener {
         int pressureRounded = Math.round(millibarsOfPressure);
 
         // Do something with this sensor data.
-        tvPression.setText(String.valueOf(pressureRounded));
+        tvPressure.setText(String.valueOf(pressureRounded));
     }
 
     @Override

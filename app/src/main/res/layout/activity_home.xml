@@ -17,7 +17,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/barometer" />
 
     <TextView
         android:id="@+id/value_pressure"
@@ -29,7 +29,7 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@id/text_pressure"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/barometer" />
 
     <TextView
         android:id="@+id/unit_pressure"
@@ -41,7 +41,7 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@id/value_pressure"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/barometer" />
 
 
     <TextView
@@ -77,5 +77,11 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/value_altitude"
         app:layout_constraintTop_toBottomOf="@id/text_pressure" />
+
+    <ImageView
+        android:id="@+id/barometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/barometer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

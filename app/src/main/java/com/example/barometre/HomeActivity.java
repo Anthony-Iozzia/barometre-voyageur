@@ -16,6 +16,7 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
     private Sensor pressure;
 
     private TextView tvPressure;
+    private TextView tvAltitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,8 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
-        tvPressure = (TextView) findViewById(R.id.capteur_pression);
+        tvPressure = (TextView) findViewById(R.id.value_pressure);
+        tvAltitude = (TextView) findViewById(R.id.value_altitude);
     }
 
     @Override
@@ -36,10 +38,12 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         float millibarsOfPressure = event.values[0];
+        float default_ambient_temp = 27;
+        double altitude = ((273 + default_ambient_temp) / 0.0065) * (1 - Math.pow((millibarsOfPressure / 1013.25),1/5.255));
         int pressureRounded = Math.round(millibarsOfPressure);
-
-        // Do something with this sensor data.
+        int altitudeRounded = Math.toIntExact(Math.round(altitude));
         tvPressure.setText(String.valueOf(pressureRounded));
+        tvAltitude.setText(String.valueOf(altitudeRounded));
     }
 
     @Override

@@ -7,38 +7,75 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/Pression"
+        android:id="@+id/text_pressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="311dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="401dp"
-        android:text="Pression (hPa) : "
-        android:textSize="25dp"
+        android:text="Pression : "
+        android:textColor="@color/pressure"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#0000ff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/capteur_pression"
+        android:id="@+id/value_pressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="411dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="401dp"
         android:text="_"
-        android:textSize="45dp"
+        android:textColor="@color/pressure"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#0000ff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/text_pressure"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/unit_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" hPa"
+        android:textColor="@color/pressure"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/value_pressure"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/text_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altitude : "
+        android:textColor="@color/altitude"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
+
+    <TextView
+        android:id="@+id/value_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/altitude"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/text_altitude"
+        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
+
+    <TextView
+        android:id="@+id/unit_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" m"
+        android:textColor="@color/altitude"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/value_altitude"
+        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

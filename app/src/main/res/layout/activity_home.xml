@@ -16,8 +16,8 @@
         android:textStyle="bold"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barometer" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/value_pressure"
@@ -28,8 +28,8 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/text_pressure"
-        app:layout_constraintTop_toBottomOf="@id/barometer" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_pressure" />
 
     <TextView
         android:id="@+id/unit_pressure"
@@ -40,8 +40,8 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/value_pressure"
-        app:layout_constraintTop_toBottomOf="@id/barometer" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/value_pressure" />
 
 
     <TextView
@@ -53,8 +53,8 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginLeft="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
+        app:layout_constraintTop_toBottomOf="@id/text_pressure"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/value_altitude"
@@ -64,8 +64,8 @@
         android:textColor="@color/altitude"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/text_altitude"
-        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
+        app:layout_constraintTop_toBottomOf="@id/text_pressure"
+        app:layout_constraintStart_toEndOf="@id/text_altitude" />
 
     <TextView
         android:id="@+id/unit_altitude"
@@ -75,13 +75,7 @@
         android:textColor="@color/altitude"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/value_altitude"
-        app:layout_constraintTop_toBottomOf="@id/text_pressure" />
-
-    <ImageView
-        android:id="@+id/barometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/barometer" />
+        app:layout_constraintTop_toBottomOf="@id/text_pressure"
+        app:layout_constraintStart_toEndOf="@id/value_altitude" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

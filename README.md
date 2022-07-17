@@ -1,1 +1,3 @@
-# barometre-voyageur
+# Baromètre Voyageur
+
+Un baromètre simple.

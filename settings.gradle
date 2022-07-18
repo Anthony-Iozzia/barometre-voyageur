@@ -1,3 +1,6 @@
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GrUnresolvedAccess
+//file:noinspection GrStringStyleViolation
 pluginManagement {
     repositories {
         gradlePluginPortal()

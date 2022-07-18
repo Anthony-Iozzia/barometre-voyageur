@@ -1,4 +1,4 @@
-package com.example.barometre;
+package voyageur.barometre;
 
 import org.junit.Test;
 

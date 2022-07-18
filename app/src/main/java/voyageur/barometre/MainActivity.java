@@ -1,4 +1,4 @@
-package com.example.barometre;
+package voyageur.barometre;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor pressure;
@@ -21,13 +21,13 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_main);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
-        tvPressure = (TextView) findViewById(R.id.value_pressure);
-        tvAltitude = (TextView) findViewById(R.id.value_altitude);
+        tvPressure = findViewById(R.id.value_pressure);
+        tvAltitude = findViewById(R.id.value_altitude);
     }
 
     @Override

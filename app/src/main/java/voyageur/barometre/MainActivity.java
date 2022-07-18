@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
+    private static final double DEFAULT_AMBIENT_TEMP = 27.0;
     private SensorManager sensorManager;
     private Sensor pressure;
 
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         float millibarsOfPressure = event.values[0];
-        float default_ambient_temp = 27;
-        double altitude = ((273 + default_ambient_temp) / 0.0065) * (1 - Math.pow((millibarsOfPressure / 1013.25),1/5.255));
+        //noinspection MagicNumber
+        double altitude = ((273.0 + DEFAULT_AMBIENT_TEMP) / 0.0065) * (1.0 - Math.pow((((double) millibarsOfPressure) / 1013.25), 1.0 / 5.255));
         int pressureRounded = Math.round(millibarsOfPressure);
         int altitudeRounded = Math.toIntExact(Math.round(altitude));
         tvPressure.setText(String.valueOf(pressureRounded));

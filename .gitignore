@@ -20,6 +20,7 @@ output.json
 
 .idea/*
 !.idea/dictionaries/
+!.idea/inspectionProfiles/
 
 misc.xml
 deploymentTargetDropDown.xml

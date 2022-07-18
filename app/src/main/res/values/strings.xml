@@ -2,4 +2,9 @@
 <resources>
     <string name="app_name">The Traveller\'s Barometer</string>
     <string name="text_pressure">Pressure:\ </string>
+    <string name="value_pressure" translatable="false">_</string>
+    <string name="unit_pressure" translatable="false">\ hPa</string>
+    <string name="text_altitude">Altitude:\ </string>
+    <string name="value_altitude" translatable="false">_</string>
+    <string name="unit_altitude" translatable="false">"\ m"</string>
 </resources>

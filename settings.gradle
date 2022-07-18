@@ -1,6 +1,7 @@
 //file:noinspection GroovyAssignabilityCheck
 //file:noinspection GrUnresolvedAccess
 //file:noinspection GrStringStyleViolation
+//file:noinspection HardCodedStringLiteral
 pluginManagement {
     repositories {
         gradlePluginPortal()

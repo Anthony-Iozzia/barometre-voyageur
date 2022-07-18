@@ -1,6 +1,7 @@
 //file:noinspection GrUnresolvedAccess
 //file:noinspection GroovyUntypedAccess
 //file:noinspection GrStringStyleViolation
+//file:noinspection HardCodedStringLiteral
 plugins {
     id 'com.android.application'
 }

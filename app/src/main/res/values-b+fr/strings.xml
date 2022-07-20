@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Baromètre Voyageur</string>
+
+    <string name="title_mode_default">Mode par défaut</string>
+
     <string name="text_pressure">Pression :\ </string>
     <string name="text_altitude">Altitude :\ </string>
 </resources>

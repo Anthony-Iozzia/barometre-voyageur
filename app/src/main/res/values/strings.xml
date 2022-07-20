@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">The Traveller\'s Barometer</string>
+
+    <string name="title_mode_default">Default mode</string>
+
     <string name="text_pressure">Pressure:\ </string>
     <string name="value_pressure" translatable="false">_</string>
     <string name="unit_pressure" translatable="false">\ hPa</string>

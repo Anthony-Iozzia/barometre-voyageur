@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             Toast.makeText(context, toastTextError, Toast.LENGTH_SHORT).show();
                             return;
                         }
+
+                        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
                         String toastText = context.getResources().getString(R.string.toast_altitude_calibrated) + String.format("%.0f", altitudeCalibrationMode1) + context.getResources().getString(R.string.unit_altitude);
                         Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();

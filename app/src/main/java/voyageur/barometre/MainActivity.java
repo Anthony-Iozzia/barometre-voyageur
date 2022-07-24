@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         tvPressure = findViewById(R.id.value_pressure);
         tvAltitudeMode0 = findViewById(R.id.value_altitude_mode0);
-        tvAltitudeMode0 = findViewById(R.id.value_altitude_mode1);
+        tvAltitudeMode1 = findViewById(R.id.value_altitude_mode1);
+        tvPressureSeaLevelMode1 = findViewById(R.id.value_pressure_sea_level_mode1);
 
         fieldAltitudeCalibrationMode1 = (EditText) findViewById(R.id.field_altitude_calibration_mode1);
         buttonAltitudeCalibrationMode1 = (Button) findViewById(R.id.button_altitude_calibration_mode1);

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="voyageur.barometre">
 
+    <uses-feature android:name="android.hardware.sensor.barometer" android:required="false" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

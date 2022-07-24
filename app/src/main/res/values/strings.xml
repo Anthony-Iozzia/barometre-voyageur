@@ -14,4 +14,6 @@
     <string name="hint_altitude">Your altitude</string>
     <string name="button_confirm">Confirm</string>
     <string name="text_pressure_sea_level">Pressure at sea level:\ </string>
+    <string name="toast_altitude_calibrated">Altitude calibrated:\ </string>
+    <string name="error_no_value_specified">Error: no value specified</string>
 </resources>

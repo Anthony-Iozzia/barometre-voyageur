@@ -2,6 +2,10 @@
 
 Un baromètre simple.
 
+## Formules mathématiques
+
+[Explication des formules utilisées](https://github.com/Anthony-Iozzia/barometre-voyageur/blob/main/docs/pressure_formulae.pdf)
+
 ## Compatibilité
 
 Système d'exploitation : Android 8.0 et versions supérieures.

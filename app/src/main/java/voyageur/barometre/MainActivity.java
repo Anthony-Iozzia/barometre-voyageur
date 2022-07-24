@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
 
         TextView tvPressureSeaLevelMode0 = findViewById(R.id.value_pressure_sea_level_mode0);
-        tvPressureSeaLevelMode0.setText(String.valueOf(DEFAULT_PRESSURE_SEA_LEVEL));
+        tvPressureSeaLevelMode0.setText(String.format("%.2f", DEFAULT_PRESSURE_SEA_LEVEL));
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
@@ -45,10 +45,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float millibarsOfPressure = event.values[0];
         //noinspection MagicNumber
         double altitude = ((273.0 + DEFAULT_AMBIENT_TEMP) / 0.0065) * (1.0 - Math.pow((((double) millibarsOfPressure) / DEFAULT_PRESSURE_SEA_LEVEL), 1.0 / 5.255));
-        int pressureRounded = Math.round(millibarsOfPressure);
-        int altitudeRounded = Math.toIntExact(Math.round(altitude));
-        tvPressure.setText(String.valueOf(pressureRounded));
-        tvAltitudeMode0.setText(String.valueOf(altitudeRounded));
+        tvPressure.setText(String.format("%.2f", millibarsOfPressure));
+        tvAltitudeMode0.setText(String.format("%.2f", altitude));
     }
 
     @Override

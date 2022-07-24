@@ -11,5 +11,7 @@
     <color name="title_mode">#FF000000</color>
 
     <color name="pressure">#FF0000FF</color>
-    <color name="altitude">#FF00FF00</color>
+    <color name="altitude">#FF689F38</color>
+
+    <color name="field_hint">#FF757575</color>
 </resources>

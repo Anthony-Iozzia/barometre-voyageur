@@ -12,23 +12,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
+    private static final double DEFAULT_PRESSURE_SEA_LEVEL = 1013.25;
     private static final double DEFAULT_AMBIENT_TEMP = 27.0;
     private SensorManager sensorManager;
     private Sensor pressure;
 
     private TextView tvPressure;
-    private TextView tvAltitude;
+    private TextView tvAltitudeMode0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView tvPressureSeaLevelMode0 = findViewById(R.id.value_pressure_sea_level_mode0);
+        tvPressureSeaLevelMode0.setText(String.valueOf(DEFAULT_PRESSURE_SEA_LEVEL));
+
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
         tvPressure = findViewById(R.id.value_pressure);
-        tvAltitude = findViewById(R.id.value_altitude);
+        tvAltitudeMode0 = findViewById(R.id.value_altitude_mode0);
     }
 
     @Override
@@ -40,11 +44,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
         float millibarsOfPressure = event.values[0];
         //noinspection MagicNumber
-        double altitude = ((273.0 + DEFAULT_AMBIENT_TEMP) / 0.0065) * (1.0 - Math.pow((((double) millibarsOfPressure) / 1013.25), 1.0 / 5.255));
+        double altitude = ((273.0 + DEFAULT_AMBIENT_TEMP) / 0.0065) * (1.0 - Math.pow((((double) millibarsOfPressure) / DEFAULT_PRESSURE_SEA_LEVEL), 1.0 / 5.255));
         int pressureRounded = Math.round(millibarsOfPressure);
         int altitudeRounded = Math.toIntExact(Math.round(altitude));
         tvPressure.setText(String.valueOf(pressureRounded));
-        tvAltitude.setText(String.valueOf(altitudeRounded));
+        tvAltitudeMode0.setText(String.valueOf(altitudeRounded));
     }
 
     @Override

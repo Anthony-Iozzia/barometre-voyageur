@@ -3,7 +3,11 @@
     <string name="app_name">Baromètre Voyageur</string>
 
     <string name="title_mode_default">Mode par défaut</string>
+    <string name="title_mode_calibration_altitude">Mode calibrage de l\'altitude</string>
 
     <string name="text_pressure">Pression :\ </string>
     <string name="text_altitude">Altitude :\ </string>
+    <string name="hint_altitude">Votre altitude</string>
+    <string name="button_confirm">Valider</string>
+    <string name="text_pressure_sea_level">Pression au niveau de la mer :\ </string>
 </resources>

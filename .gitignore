@@ -35,3 +35,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Temporary Word file
+docs/~$essure_formulae.docx

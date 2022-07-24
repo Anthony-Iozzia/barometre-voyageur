@@ -16,4 +16,6 @@
     <string name="text_pressure_sea_level">Pressure at sea level:\ </string>
     <string name="toast_altitude_calibrated">Altitude calibrated:\ </string>
     <string name="error_no_value_specified">Error: no value specified</string>
+
+    <string name="key_pressure_sea_level_mode1" translatable="false">key_pressure_sea_level_mode1</string>
 </resources>

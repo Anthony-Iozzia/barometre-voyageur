@@ -1,11 +1,13 @@
 package voyageur.barometre;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -45,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         Context context = getApplicationContext();
 
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        pressureSeaLevelMode1 = sharedPreferences.getFloat(getString(R.string.key_pressure_sea_level_mode1), (float) DEFAULT_PRESSURE_SEA_LEVEL);
+
         TextView tvPressureSeaLevelMode0 = findViewById(R.id.value_pressure_sea_level_mode0);
         tvPressureSeaLevelMode0.setText(String.format(NUMBERS_PRECISION, DEFAULT_PRESSURE_SEA_LEVEL));
 
@@ -81,9 +87,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         String toastText = context.getResources().getString(R.string.toast_altitude_calibrated) + String.format("%.0f", altitudeCalibrationMode1) + context.getResources().getString(R.string.unit_altitude);
                         Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
 
-                        // Compute pressure at sea level
-                        pressureSeaLevelMode1 = pressureRealTime / (Math.pow(1.0 - (0.0065 * altitudeCalibrationMode1)/(KELVIN_CST + DEFAULT_AMBIENT_TEMP),5.255));
+                        pressureSeaLevelMode1 = computePressureSeaLevel(pressureRealTime, altitudeCalibrationMode1, DEFAULT_AMBIENT_TEMP);
                         tvPressureSeaLevelMode1.setText(String.format(NUMBERS_PRECISION, pressureSeaLevelMode1));
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putFloat(getString(R.string.key_pressure_sea_level_mode1), (float) pressureSeaLevelMode1);
+                        editor.apply();
                     }
                 });
     }
@@ -121,5 +130,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private double computeAltitude(double pressure, double pressureSeaLevel, double ambient_temp) {
         return ((KELVIN_CST + ambient_temp) / 0.0065) * (1.0 - Math.pow((pressure / pressureSeaLevel), 1.0 / 5.255));
+    }
+
+    private double computePressureSeaLevel(double pressure, double altitude, double ambient_temp) {
+        return pressure / (Math.pow(1.0 - (0.0065 * altitude)/(KELVIN_CST + ambient_temp),5.255));
     }
 }

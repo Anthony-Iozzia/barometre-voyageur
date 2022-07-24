@@ -6,6 +6,7 @@ Un baromètre simple.
 
 Système d'exploitation : Android 8.0 et versions supérieures.
 
-## Sources
+## Crédits
 
+* Calculs et idées de fonctionnalités : Claude Iozzia
 * [Image de baromètre](https://commons.wikimedia.org/wiki/File:Barometer.svg) : algotruneman, CC0, via Wikimedia Commons

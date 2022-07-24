@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private static final double DEFAULT_AMBIENT_TEMP = 15.0;
     private static final double KELVIN_CST = 273.15;
 
+    private static final String NUMBERS_PRECISION = "%.0f";
+
     private double pressureRealTime = DEFAULT_PRESSURE_SEA_LEVEL;
     private double altitudeCalibrationMode1 = ALTITUDE_SEA_LEVEL;
     private double pressureSeaLevelMode1 = DEFAULT_PRESSURE_SEA_LEVEL;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Context context = getApplicationContext();
 
         TextView tvPressureSeaLevelMode0 = findViewById(R.id.value_pressure_sea_level_mode0);
-        tvPressureSeaLevelMode0.setText(String.format("%.2f", DEFAULT_PRESSURE_SEA_LEVEL));
+        tvPressureSeaLevelMode0.setText(String.format(NUMBERS_PRECISION, DEFAULT_PRESSURE_SEA_LEVEL));
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensorPressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         tvAltitudeMode0 = findViewById(R.id.value_altitude_mode0);
         tvAltitudeMode1 = findViewById(R.id.value_altitude_mode1);
         tvPressureSeaLevelMode1 = findViewById(R.id.value_pressure_sea_level_mode1);
+
+        tvPressureSeaLevelMode1.setText(String.format(NUMBERS_PRECISION, pressureSeaLevelMode1));
 
         fieldAltitudeCalibrationMode1 = (EditText) findViewById(R.id.field_altitude_calibration_mode1);
         buttonAltitudeCalibrationMode1 = (Button) findViewById(R.id.button_altitude_calibration_mode1);
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
                         // Compute pressure at sea level
                         pressureSeaLevelMode1 = pressureRealTime / (Math.pow(1.0 - (0.0065 * altitudeCalibrationMode1)/(KELVIN_CST + DEFAULT_AMBIENT_TEMP),5.255));
-                        tvPressureSeaLevelMode1.setText(String.format("%.2f", pressureSeaLevelMode1));
+                        tvPressureSeaLevelMode1.setText(String.format(NUMBERS_PRECISION, pressureSeaLevelMode1));
                     }
                 });
     }
@@ -88,13 +92,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         pressureRealTime = event.values[0]; // Pressure in hPa
-        tvPressure.setText(String.format("%.2f", pressureRealTime));
+        tvPressure.setText(String.format(NUMBERS_PRECISION, pressureRealTime));
 
         double altitudeMode0 = computeAltitude(pressureRealTime, DEFAULT_PRESSURE_SEA_LEVEL, DEFAULT_AMBIENT_TEMP);
-        tvAltitudeMode0.setText(String.format("%.2f", altitudeMode0));
+        tvAltitudeMode0.setText(String.format(NUMBERS_PRECISION, altitudeMode0));
 
         double altitudeMode1 = computeAltitude(pressureRealTime, pressureSeaLevelMode1, DEFAULT_AMBIENT_TEMP);
-        tvAltitudeMode1.setText(String.format("%.2f", altitudeMode1));
+        tvAltitudeMode1.setText(String.format(NUMBERS_PRECISION, altitudeMode1));
     }
 
     @Override

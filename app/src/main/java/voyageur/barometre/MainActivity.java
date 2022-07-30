@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
-                        String toastText = context.getResources().getString(R.string.toast_altitude_calibrated) + String.format("%.0f", altitudeCalibrationMode1) + context.getResources().getString(R.string.unit_altitude);
+                        String toastText = context.getResources().getString(R.string.toast_altitude_calibrated) + String.format(NUMBERS_PRECISION, altitudeCalibrationMode1) + context.getResources().getString(R.string.unit_altitude);
                         Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
 
                         pressureSeaLevelMode1 = computePressureSeaLevel(pressureRealTime, altitudeCalibrationMode1, DEFAULT_AMBIENT_TEMP);
@@ -143,11 +143,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                this.startActivity(intent);
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            this.startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

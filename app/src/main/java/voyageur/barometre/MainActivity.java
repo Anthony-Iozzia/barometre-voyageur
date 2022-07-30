@@ -145,8 +145,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // as you specify a parent activity in AndroidManifest.xml.
         int itemId = item.getItemId();
         if (itemId == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            this.startActivity(intent);
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 
